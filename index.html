@@ -56,7 +56,7 @@
             50% { border-color: white; }
         }
 
-        /* Стили для частиц */
+
         .particles {
             position: absolute;
             top: 0;
@@ -80,7 +80,6 @@
             100% { transform: translateY(-100vh) translateX(100px); opacity: 0; }
         }
 
-        /* Стили для комет */
         .comet {
             position: absolute;
             width: 6px;
@@ -110,7 +109,6 @@
             100% { transform: translate(calc(100vw + 100px), calc(100vh + 100px)); opacity: 0; }
         }
 
-        /* Пульсирующие круги */
         .pulse-circle {
             position: absolute;
             border-radius: 50%;
@@ -136,7 +134,6 @@
     <div id="pulse-container"></div>
 
     <script>
-        // Эффект печатающегося текста
         const text = "Hello World";
         const typedText = document.getElementById('typed-text');
         let i = 0;
@@ -151,7 +148,6 @@
             }
         }
         
-        // Запускаем после загрузки страницы
         window.onload = function() {
             typeWriter();
             createParticles();
@@ -159,7 +155,6 @@
             createPulseCircles();
         };
 
-        // Создаем частицы
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 80;
@@ -180,7 +175,6 @@
                 particle.style.animationDuration = `${duration}s`;
                 particle.style.animationDelay = `${delay}s`;
                 
-                // Случайный цвет частиц
                 const colors = ['rgba(255,255,255,0.7)', 'rgba(200,230,255,0.7)', 'rgba(255,220,200,0.7)'];
                 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
                 
@@ -188,7 +182,6 @@
             }
         }
 
-        // Создаем кометы
         function createComets() {
             const cometsContainer = document.getElementById('comets-container');
             
@@ -196,7 +189,6 @@
                 const comet = document.createElement('div');
                 comet.classList.add('comet');
                 
-                // Случайные параметры
                 const size = Math.random() * 4 + 2;
                 const startX = -100;
                 const startY = Math.random() * window.innerHeight * 0.5;
@@ -210,25 +202,21 @@
                 comet.style.animationDuration = `${duration}s`;
                 comet.style.animationDelay = `${delay}s`;
                 
-                // Случайный цвет кометы
                 const colors = ['#ffffff', '#aaccff', '#ffccaa'];
                 comet.style.background = colors[Math.floor(Math.random() * colors.length)];
                 comet.style.boxShadow = `0 0 10px 2px ${colors[Math.floor(Math.random() * colors.length)]}`;
                 
                 cometsContainer.appendChild(comet);
                 
-                // Удаляем комету после завершения анимации
                 setTimeout(() => {
                     comet.remove();
                 }, duration * 1000);
             }
             
-            // Создаем новые кометы каждые 1-3 секунды
             setInterval(addComet, 1000);
-            addComet(); // Первая комета
+            addComet(); 
         }
 
-        // Создаем пульсирующие круги
         function createPulseCircles() {
             const pulseContainer = document.getElementById('pulse-container');
             
@@ -249,21 +237,18 @@
                 circle.style.animationDuration = `${duration}s`;
                 circle.style.animationDelay = `${delay}s`;
                 
-                // Случайный цвет границы
                 const colors = ['rgba(255,255,255,0.2)', 'rgba(170,204,255,0.2)', 'rgba(255,204,170,0.2)'];
                 circle.style.borderColor = colors[Math.floor(Math.random() * colors.length)];
                 
                 pulseContainer.appendChild(circle);
                 
-                // Удаляем круг после завершения анимации
                 setTimeout(() => {
                     circle.remove();
                 }, duration * 1000);
             }
             
-            // Создаем новые круги каждые 1-2 секунды
             setInterval(addPulseCircle, 1500);
-            addPulseCircle(); // Первый круг
+            addPulseCircle(); 
         }
     </script>
 </body>
